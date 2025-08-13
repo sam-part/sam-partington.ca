@@ -1,0 +1,21 @@
+---
+import { isNowPlaying, getDisplayTime } from "../lib/lastfm";
+
+const { track } = Astro.props;
+---
+
+{
+    isNowPlaying(track) ? (
+        <div class="flex gap-2 items-center">
+            <img
+                class="size-3"
+                src="https://www.last.fm/static/images/icons/now_playing_grey_12@2x.a643c755e003.gif"
+            />
+            <p class="self-start whitespace-nowrap shrink-0">
+                Now playing
+            </p>
+        </div>
+    ) : (
+        <p>{getDisplayTime(track)}</p>
+    )
+}

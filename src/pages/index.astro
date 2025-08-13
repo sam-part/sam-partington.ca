@@ -1,16 +1,54 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Title from "../components/Title.astro";
+import MusicList from "../components/MusicList.astro";
 
+import GithubIcon from "../images/github-mark-white.svg";
+import LinkedinIcon from "../images/linkedin-icon.svg";
+import InstagramIcon from "../images/instagram-icon.svg";
+import EmailIcon from "../images/email-icon.svg";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Sam Partington">
+  <Title title="Sam Partington" />
+
+  <h5 class="text-center">
+    mathematics student @
+    <a href="https://uwaterloo.ca/" class="underline text-highlight-1"
+      >university of waterloo</a
+   >
+  </h5>
+
+  <section class="flex items-center gap-2 m-8">
+    <a href="https://github.com/sam-part" target="_blank">
+      <GithubIcon width={24} height={24} />
+    </a>
+    <LinkedinIcon width={32} height={32} />
+    <InstagramIcon width={24} height={24} />
+    <EmailIcon width={32} height={32} />
+  </section>
+
+  <section class="container max-w-3xl space-y-2">
+    <p>
+      Hi, my name is Sam and I'm currently pursuing a degree in combinatorics &
+      optimization.
+    </p>
+    <p>
+      Besides math, I have a strong interest in
+      <span class="text-highlight-2">software engineering,</span>
+      <span class="text-highlight-3">robotics,</span>
+      and
+      <span class="text-highlight-4">procedural generation.</span>
+    </p>
+    <p>
+      I'm also an avid reader who enjoys
+      <span class="text-highlight-6">music,</span>
+      playing <span class="text-highlight-5">guitar,</span>
+      and spending time with <span class="text-highlight-7">nature</span>.
+    </p>
+
+    <div class="mt-8">
+      <MusicList />
+    </div>
+  </section>
+</BaseLayout>

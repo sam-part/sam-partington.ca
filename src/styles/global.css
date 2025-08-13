@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "@fontsource/libertinus-math";
+
+@theme {
+    --color-background: #18181b;
+    --color-title: #d1c8ff;
+    --color-text: #cdd6f4;
+
+    --color-highlight-1: #c6a0f6;
+    --color-highlight-2: #f5bde6;
+    --color-highlight-3: #b7bdf8;
+    --color-highlight-4: #a6da95;
+    --color-highlight-5: #91d7e3;
+    --color-highlight-6: #f5a97f;
+    --color-highlight-7: #eed49f;
+
+    --font-libertinus: "Libertinus Math", system-ui;
+}
+
+.text-default {
+    @apply text-lg sm:text-xl;
+}
+
+.text-small {
+    @apply text-base sm:text-lg;
+}
+
+.text-xsmall {
+    @apply text-sm sm:text-base;
+}

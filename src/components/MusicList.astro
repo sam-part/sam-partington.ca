@@ -1,0 +1,78 @@
+---
+import MusicDisplayTime from "./MusicDisplayTime.astro";
+import type { Track, UserInfo } from "../lib/lastfm";
+
+let tracks: Track[] = [];
+let user: UserInfo | null = null;
+let error = null;
+
+try {
+    const res = await fetch(new URL("/api/recent-tracks", Astro.url));
+
+    if (!res.ok) {
+        const err = await res.json();
+
+        throw new Error(
+            err.error ||
+                `Failed to fetch last.fm data with status ${res.status}`,
+        );
+    }
+
+    const data = await res.json();
+    tracks = data.recenttracks.track;
+    tracks = tracks.slice(0, 5);
+
+    user = data.recenttracks["@attr"];
+} catch (err: any) {
+    error = err;
+}
+---
+
+<div
+    class="container flex flex-col max-w-lg gap-2 mx-auto text-sm md:text-base"
+> 
+    <div class="mb-2 text-center text-default">
+        <p>
+            My recent tracks on
+            <a href="https://www.last.fm/user/Augosis" target="_blank" class="underline text-highlight-4">last.fm</a>
+        </p>
+        <p class="text-xsmall">
+            {user?.total} scrobbles since 2019
+        </p>
+    </div>
+    {
+        error ? (
+            <p>Could not load last.fm data.</p>
+        ) : (
+            tracks.map((track: Track) => {
+                return (
+                    <div class="flex items-start gap-2 mx-1 sm:items-center">
+                        <img
+                            class="size-8 md:size-11"
+                            src={track.image[1]["#text"]}
+                            alt={`Album cover of ${track.album["#text"]} by ${track.artist["#text"]}`}
+                        />
+
+                        <div class="flex flex-col truncate grow w-max text-ellipsis">
+                            <div class="flex items-center justify-between gap-4">
+                                <p class="leading-none truncate text-small text-highlight-1 sm:leading-normal">
+                                    {track.name}
+                                </p>
+                                <div class="hidden sm:block">
+                                    <MusicDisplayTime track={track} />
+                                </div>
+                            </div>
+                            <p class="truncate text-text">
+                                {track.artist["#text"]}
+                            </p>
+                            <div class="block sm:hidden">
+                                <MusicDisplayTime track={track} />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full h-px bg-[#494d64]/40" />
+                );
+            })
+        )
+    }
+</div>
