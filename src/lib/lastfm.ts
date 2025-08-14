@@ -17,6 +17,7 @@ export interface Track {
         "#text": string;
     };
     name: string;
+    url: string;
     date?: {
         uts: string;
         "#text": string;
