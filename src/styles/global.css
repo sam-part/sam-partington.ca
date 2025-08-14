@@ -3,6 +3,7 @@
 
 @theme {
     --color-background: #18181b;
+    --color-surface: #363a4f;
     --color-title: #d1c8ff;
     --color-text: #cdd6f4;
 
@@ -27,4 +28,12 @@
 
 .text-xsmall {
     @apply text-sm sm:text-base;
+}
+
+.header {
+    @apply text-4xl;
+}
+
+.subheader {
+    @apply text-3xl;
 }
