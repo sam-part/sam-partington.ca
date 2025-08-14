@@ -1,29 +1,55 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Title from "../components/Title.astro";
 import MusicList from "../components/MusicList.astro";
+import Title from "../components/Title.astro";
+import ImageAscii from "../components/ImageAscii.astro";
 
 import GithubIcon from "../images/github-mark-white.svg";
 import LinkedinIcon from "../images/linkedin-icon.svg";
 import InstagramIcon from "../images/instagram-icon.svg";
 import EmailIcon from "../images/email-icon.svg";
+
+const projects = [
+  {
+    name: "fractals-cl",
+    desc: `GPU-accelerated fractal generation, built with 
+          <span class="text-nowrap text-highlight-7">C++</span> 
+          and 
+          <span class="text-highlight-4">OpenCL</span>.`,
+    link: "https://github.com/sam-part/fractals-cl",
+  },
+  {
+    name: "cubegen",
+    desc: `Terminal-based speedcubing timer made with 
+          <span class="text-highlight-7">Rust</span>.`,
+    link: "https://github.com/sam-part/cubegen",
+  },
+  {
+    name: "sam-partington.ca",
+    desc: `My personal website, made with love using 
+          <span class="text-highlight-7">Astro</span>.`,
+    link: "https://github.com/sam-part/sam-partington.ca",
+  },
+];
 ---
 
 <BaseLayout title="Sam Partington">
-  <Title title="Sam Partington" />
-
-  <h5 class="text-center">
+  <section class="text-center">
+    <Title title="Sam Partington" />
     mathematics student @
     <a href="https://uwaterloo.ca/" class="underline text-highlight-1"
       >university of waterloo</a
-   >
-  </h5>
+    >
+  </section>
 
   <section class="flex items-center gap-2 m-8">
     <a href="https://github.com/sam-part" target="_blank">
       <GithubIcon width={24} height={24} />
     </a>
-    <a href="https://www.linkedin.com/in/samuel-partington-580b69316/" target="_blank">
+    <a
+      href="https://www.linkedin.com/in/samuel-partington-580b69316/"
+      target="_blank"
+    >
       <LinkedinIcon width={32} height={32} />
     </a>
     <a href="https://www.instagram.com/sam.partington/" target="_blank">
@@ -34,7 +60,7 @@ import EmailIcon from "../images/email-icon.svg";
     </a>
   </section>
 
-  <section class="container max-w-3xl space-y-2">
+  <section class="space-y-2">
     <p>
       Hi, my name is Sam and I'm currently pursuing a degree in combinatorics &
       optimization.
@@ -52,9 +78,35 @@ import EmailIcon from "../images/email-icon.svg";
       playing <span class="text-highlight-5">guitar,</span>
       and spending time with <span class="text-highlight-7">nature</span>.
     </p>
+  </section>
 
-    <div class="mt-8">
-      <MusicList />
+  <section class="w-full my-10 mr-auto">
+    <MusicList />
+  </section>
+
+  <section class="w-full">
+    <h2 class="subheader text-title">Projects</h2>
+
+    <div class="grid grid-cols-2 mt-4 gap-y-4 gap-x-8">
+      {
+        projects.map((project) => {
+          return (
+            <div class="w-full mx-auto rounded-lg">
+              <a
+                class="text-2xl text-highlight-5 hover:underline"
+                href={project.link}
+              >
+                {project.name}
+              </a>
+              <p class="text-xsmall" set:html={project.desc} />
+            </div>
+          );
+        })
+      }
     </div>
   </section>
 </BaseLayout>
+
+<div class="mx-auto my-20 w-fit">
+  <ImageAscii />
+</div>
