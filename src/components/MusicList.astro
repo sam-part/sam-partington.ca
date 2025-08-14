@@ -29,9 +29,9 @@ try {
 ---
 
 <div
-    class="container flex flex-col max-w-lg gap-2 mx-auto text-sm md:text-base"
+    class="container flex flex-col w-full gap-2 text-sm md:text-base"
 > 
-    <div class="mb-2 text-center text-default">
+    <div class="mb-2 text-default">
         <p>
             My recent tracks on
             <a href="https://www.last.fm/user/Augosis" target="_blank" class="underline text-highlight-4">last.fm</a>
@@ -45,6 +45,9 @@ try {
             <p>Could not load last.fm data.</p>
         ) : (
             tracks.map((track: Track) => {
+                const artist = track.artist["#text"];
+                const artistLink = "https://www.last.fm/music/" + artist.replaceAll(" ", "+");
+
                 return (
                     <div class="flex items-start gap-2 mx-1 sm:items-center">
                         <img
@@ -55,16 +58,16 @@ try {
 
                         <div class="flex flex-col truncate grow w-max text-ellipsis">
                             <div class="flex items-center justify-between gap-4">
-                                <p class="leading-none truncate text-small text-highlight-1 sm:leading-normal">
+                                <a href={track.url} class="leading-none truncate text-small text-highlight-1 sm:leading-normal hover:underline">
                                     {track.name}
-                                </p>
+                                </a>
                                 <div class="hidden sm:block">
                                     <MusicDisplayTime track={track} />
                                 </div>
                             </div>
-                            <p class="truncate text-text">
+                            <a href={artistLink} class="truncate text-text hover:underline">
                                 {track.artist["#text"]}
-                            </p>
+                            </a>
                             <div class="block sm:hidden">
                                 <MusicDisplayTime track={track} />
                             </div>
