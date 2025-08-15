@@ -45,7 +45,7 @@ try {
     </div>
     {
         error ? (
-            <p>Could not load last.fm data.</p>
+            <p>Could not load last.fm data: {error}</p>
         ) : (
             tracks.map((track: Track) => {
                 const artist = track.artist["#text"];
