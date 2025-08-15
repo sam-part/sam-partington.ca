@@ -10,7 +10,7 @@ let user: UserInfo | null = null;
 let error = null;
 
 try {
-    const res = await fetch(new URL("/api/recent-tracks", Astro.url));
+    const res = await fetch(`${Astro.site || 'http://localhost:4321'}/api/recent-tracks`);
 
     if (!res.ok) {
         const err = await res.json();
