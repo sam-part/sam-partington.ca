@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import MusicDisplayTime from "./MusicDisplayTime.astro";
 import type { Track, UserInfo } from "../lib/lastfm";
 
+export const prerender = false;
+
 let tracks: Track[] = [];
 let user: UserInfo | null = null;
 let error = null;
