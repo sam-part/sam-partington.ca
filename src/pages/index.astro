@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import MusicList from "../components/MusicList.astro";
 import Title from "../components/Title.astro";
@@ -8,6 +10,9 @@ import GithubIcon from "../images/github-mark-white.svg";
 import LinkedinIcon from "../images/linkedin-icon.svg";
 import InstagramIcon from "../images/instagram-icon.svg";
 import EmailIcon from "../images/email-icon.svg";
+
+import WeavertonImage from "../images/weaverton.png";
+import StrathDroidsImage from "../images/strathdroids.jpg";
 
 const projects = [
   {
@@ -31,6 +36,22 @@ const projects = [
     link: "https://github.com/sam-part/sam-partington.ca",
   },
 ];
+
+const experiences = [
+  {
+    name: "Weaverton",
+    desc: "Co-founder and developer",
+    date: "Since 2024",
+    link: "https://www.weaverton.net/",
+    image: WeavertonImage,
+  },
+  {
+    name: "FRC 7058: StrathDroids",
+    desc: "Robotics team captain and lead developer",
+    date: "2024",
+    image: StrathDroidsImage,
+  },
+];
 ---
 
 <BaseLayout title="Sam Partington">
@@ -43,19 +64,20 @@ const projects = [
   </section>
 
   <section class="flex items-center gap-2 m-8">
-    <a href="https://github.com/sam-part" target="_blank">
+    <a href="https://github.com/sam-part" target="_blank" aria-label="Link to GitHub account">
       <GithubIcon width={24} height={24} />
     </a>
     <a
       href="https://www.linkedin.com/in/samuel-partington-580b69316/"
       target="_blank"
+      aria-label="Link to LinkedIn account"
     >
       <LinkedinIcon width={32} height={32} />
     </a>
-    <a href="https://www.instagram.com/sam.partington/" target="_blank">
+    <a href="https://www.instagram.com/sam.partington/" target="_blank" aria-label="Link to Instagram account">
       <InstagramIcon width={24} height={24} />
     </a>
-    <a href="mailto:sampartington06@gmail.com" target="_blank">
+    <a href="mailto:sampartington06@gmail.com" target="_blank" aria-label="Link to email">
       <EmailIcon width={32} height={32} />
     </a>
   </section>
@@ -87,7 +109,7 @@ const projects = [
   <section class="w-full">
     <h2 class="subheader text-title">Projects</h2>
 
-    <div class="grid grid-cols-2 mt-4 gap-y-4 gap-x-8">
+    <div class="grid grid-cols-1 mt-4 sm:grid-cols-2 gap-y-4 gap-x-8">
       {
         projects.map((project) => {
           return (
@@ -105,8 +127,52 @@ const projects = [
       }
     </div>
   </section>
+
+  <section class="w-full my-10">
+    <h2 class="subheader text-title">Experience</h2>
+
+    <div class="flex flex-col w-full mt-2">
+      {
+        experiences.map((exp) => {
+          return (
+            <div class="flex w-full my-2 items-center-last">
+              <Image
+                src={exp.image}
+                alt={`${exp.name} logo`}
+                class="size-12 rounded-xl"
+              />
+              <div class="w-full mx-3">
+                <div class="flex flex-col sm:items-center sm:flex-row">
+                  {exp.link ? (
+                    <a
+                      href={exp.link}
+                      class="leading-none text-highlight-1 text-default hover:underline"
+                    >
+                      {exp.name}
+                    </a>
+                  ) : (
+                    <h3 class="leading-none text-highlight-1 text-default">
+                      {exp.name}
+                    </h3>
+                  )}
+                  <p class="sm:ml-auto sm:mr-1 text-text text-xsmall">
+                    {exp.date}
+                  </p>
+                </div>
+                <p class="text-xsmall text-text" set:html={exp.desc} />
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
 </BaseLayout>
 
-<div class="mx-auto my-20 w-fit">
+<div class="max-w-full mx-auto my-24 w-fit">
   <ImageAscii />
+</div>
+
+<div class="pb-2 mt-4 text-center text-xsmall">
+  © 2025 Sam Partington
 </div>
