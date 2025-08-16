@@ -1,5 +1,7 @@
 import type { APIRoute } from "astro";
 
+export const prerender = false
+
 const API_KEY = import.meta.env.LASTFM_API_KEY;
 const NUM_TRACKS = 5;
 const USER = "Augosis";
