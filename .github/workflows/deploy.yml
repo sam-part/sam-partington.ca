@@ -45,7 +45,7 @@ jobs:
         strip_components: 1
         rm: true
 
-    - name: Restart node server 
+    - name: Restart node server and install sharp
       uses: appleboy/ssh-action@v1
       with:
         host: ${{ secrets.SERVER_IP }}
@@ -55,3 +55,5 @@ jobs:
         script: |
           sudo systemctl daemon-reload
           sudo systemctl restart sam-partington-astro.service
+          cd ${{ secrets.DEPLOY_PATH }}
+          npm install sharp
