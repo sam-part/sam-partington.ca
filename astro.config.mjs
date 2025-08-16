@@ -15,5 +15,7 @@ export default defineConfig({
     mode: 'standalone'
   }),
 
+  output: "server",
+
   site: "https://sam-partington.ca"
 });
