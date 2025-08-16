@@ -3,7 +3,8 @@ name: Deploy
 on:
   push:
     branches:
-      - master 
+      - master
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -42,6 +43,7 @@ jobs:
         source: "dist/*"
         target: ${{ secrets.DEPLOY_PATH }}
         strip_components: 1
+        rm: true
 
     - name: Restart node server 
       uses: appleboy/ssh-action@v1
