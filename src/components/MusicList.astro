@@ -35,7 +35,7 @@ try {
     <div class="mb-2 text-default">
         <p>
             My recent tracks on
-            <a href="https://www.last.fm/user/Augosis" target="_blank" class="underline text-highlight-4">last.fm</a>
+            <a href="https://www.last.fm/user/Augosis" target="_blank" class="underline link text-highlight-4">last.fm</a>
         </p>
         <p class="text-xsmall">
             {user?.total} scrobbles since 2019
@@ -62,14 +62,14 @@ try {
 
                         <div class="flex flex-col truncate grow w-max text-ellipsis">
                             <div class="flex items-center justify-between gap-4">
-                                <a href={track.url} class="leading-none truncate text-small text-highlight-1 sm:leading-normal hover:underline">
+                                <a href={track.url} class="leading-none truncate text-small text-highlight-1 sm:leading-normal link">
                                     {track.name}
                                 </a>
                                 <div class="hidden sm:block">
                                     <MusicDisplayTime track={track} />
                                 </div>
                             </div>
-                            <a href={artistLink} class="truncate text-text hover:underline">
+                            <a href={artistLink} class="truncate text-text link">
                                 {track.artist["#text"]}
                             </a>
                             <div class="block sm:hidden">

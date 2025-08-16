@@ -14,8 +14,13 @@
     --color-highlight-5: #91d7e3;
     --color-highlight-6: #f5a97f;
     --color-highlight-7: #eed49f;
+    --color-link: #ca9ee6;
 
     --font-libertinus: "Libertinus Math", system-ui;
+}
+
+.link {
+    @apply hover:underline hover:brightness-110;
 }
 
 .text-default {

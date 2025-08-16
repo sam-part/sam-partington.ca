@@ -59,14 +59,17 @@ export const prerender = false;
 <BaseLayout title="Sam Partington">
   <section class="text-center">
     <Title title="Sam Partington" />
-    mathematics student @
-    <a href="https://uwaterloo.ca/" class="underline text-highlight-1"
-      >university of waterloo</a
-    >
+    <div>
+      mathematics student @
+      <a href="https://uwaterloo.ca/" class="underline text-highlight-1 link"
+        >university of waterloo</a
+      >
+    </div>
+    <!-- <a href="/blog" class="underline text-highlight-5">my blog</a> -->
   </section>
 
-  <section class="flex items-center gap-2 m-8">
-    <a href="https://github.com/sam-part" target="_blank" aria-label="Link to GitHub account">
+  <section class="my-8 mx-4 text-center">
+    <!-- <a href="https://github.com/sam-part" target="_blank" aria-label="Link to GitHub account">
       <GithubIcon width={24} height={24} />
     </a>
     <a
@@ -81,7 +84,12 @@ export const prerender = false;
     </a>
     <a href="mailto:sampartington06@gmail.com" target="_blank" aria-label="Link to email">
       <EmailIcon width={32} height={32} />
-    </a>
+    </a> -->
+    <a class="text-link mx-1 link" href="/">[home]</a>
+    <a class="text-link mx-1 link" href="https://github.com/sam-part" target="_blank">[github]</a>
+    <a class="text-link mx-1 link" href="https://www.linkedin.com/in/samuel-partington-580b69316/" target="_blank">[linkedin]</a>
+    <a class="text-link mx-1 link" href="mailto:sampartington06@gmail.com" target="_blank">[email]</a>
+    <a class="text-link mx-1 link" href="/blog">[blog]</a>
   </section>
 
   <section class="space-y-2">
@@ -117,7 +125,7 @@ export const prerender = false;
           return (
             <div class="w-full mx-auto rounded-lg">
               <a
-                class="text-2xl text-highlight-5 hover:underline"
+                class="text-2xl text-highlight-5 link"
                 href={project.link}
               >
                 {project.name}
@@ -148,7 +156,7 @@ export const prerender = false;
                   {exp.link ? (
                     <a
                       href={exp.link}
-                      class="leading-none text-highlight-1 text-default hover:underline"
+                      class="leading-none text-highlight-1 text-default link"
                     >
                       {exp.name}
                     </a>
@@ -171,10 +179,10 @@ export const prerender = false;
   </section>
 </BaseLayout>
 
-<div class="max-w-full mx-auto my-24 w-fit">
+<div class="max-w-full mx-auto mt-24 mb-12 w-fit">
   <ImageAscii />
 </div>
 
-<div class="mb-4 text-center text-xsmall">
+<div class="mb-12 text-center text-xsmall">
   © 2025 Sam Partington
 </div>
