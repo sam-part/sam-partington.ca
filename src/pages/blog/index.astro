@@ -11,15 +11,15 @@ const posts = await getCollection("blog");
         {
             posts.map((post) => (
                 <div class="mb-6">
-                    <div class="flex">
+                    <div class="flex flex-col sm:flex-row">
                         <a
                             href={`/blog/${post.id}`}
-                            class="link underline text-highlight-2"
+                            class="link underline text-highlight-2 mr-12"
                         >
                             {post.data.title}
                         </a>
 
-                        <p class="ml-auto text-highlight-3">
+                        <p class="sm:ml-auto text-highlight-3 text-nowrap">
                             {post.data.date}
                         </p>
                     </div>

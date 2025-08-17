@@ -20,7 +20,7 @@
 }
 
 .link {
-    @apply hover:underline hover:brightness-110;
+    @apply hover:underline hover:brightness-110 active:brightness-90 transition;
 }
 
 .text-default {
@@ -41,4 +41,8 @@
 
 .subheader {
     @apply text-3xl;
+}
+
+.blog-content a {
+    @apply text-highlight-1 hover:underline hover:brightness-110 active:brightness-90 transition;
 }

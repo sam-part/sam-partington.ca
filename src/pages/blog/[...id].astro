@@ -14,6 +14,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
+<!-- Override some default KaTeX styles -->
 <style is:global>
     p {
         margin-bottom: 0.5em;
@@ -22,6 +23,10 @@ const { Content } = await render(post);
     p .katex {
         font: inherit !important;
         font-size: 1.1em !important;
+    }
+
+    .katex-display > .katex {
+        text-wrap: wrap !important;
     }
 </style>
 
@@ -42,7 +47,7 @@ const { Content } = await render(post);
                 {post.data.date}
             </h2>
         </div>
-        <div class="text-xl">
+        <div class="blog-content text-default">
             <Content />
         </div>
     </div>
