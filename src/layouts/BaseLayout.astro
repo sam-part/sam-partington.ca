@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
+import Header from "../components/Header.astro";
 
-const { title } = Astro.props;
+const { title, desc } = Astro.props;
 ---
 
 <html lang="en">
@@ -13,8 +14,10 @@ const { title } = Astro.props;
     </head>
 
     <body class="px-5 bg-background font-libertinus text-text text-default">
-        <main class="container flex flex-col items-center max-w-3xl mx-auto">
+        <main class="container flex flex-col items-center max-w-3xl mx-auto min-h-screen">
+            <Header title="Sam Partington" />
             <slot />
+            <div class="mt-auto py-12 text-center text-xsmall">© 2025 Sam Partington</div>
         </main>
     </body>
 </html>

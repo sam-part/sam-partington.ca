@@ -3,13 +3,8 @@ import { Image } from "astro:assets";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import MusicList from "../components/MusicList.astro";
-import Title from "../components/Title.astro";
 import ImageAscii from "../components/ImageAscii.astro";
-
-import GithubIcon from "../images/github-mark-white.svg";
-import LinkedinIcon from "../images/linkedin-icon.svg";
-import InstagramIcon from "../images/instagram-icon.svg";
-import EmailIcon from "../images/email-icon.svg";
+import Header from "../components/Header.astro";
 
 import WeavertonImage from "../images/weaverton.png";
 import StrathDroidsImage from "../images/strathdroids.jpg";
@@ -57,40 +52,12 @@ export const prerender = false;
 ---
 
 <BaseLayout title="Sam Partington">
-  <section class="text-center">
-    <Title title="Sam Partington" />
-    <div>
-      mathematics student @
-      <a href="https://uwaterloo.ca/" class="underline text-highlight-1 link"
-        >university of waterloo</a
-      >
-    </div>
-    <!-- <a href="/blog" class="underline text-highlight-5">my blog</a> -->
-  </section>
-
-  <section class="my-8 mx-4 text-center">
-    <!-- <a href="https://github.com/sam-part" target="_blank" aria-label="Link to GitHub account">
-      <GithubIcon width={24} height={24} />
-    </a>
-    <a
-      href="https://www.linkedin.com/in/samuel-partington-580b69316/"
-      target="_blank"
-      aria-label="Link to LinkedIn account"
+  <div slot="desc">
+    mathematics student @
+    <a href="https://uwaterloo.ca/" class="underline text-highlight-1 link"
+      >university of waterloo</a
     >
-      <LinkedinIcon width={32} height={32} />
-    </a>
-    <a href="https://www.instagram.com/sam.partington/" target="_blank" aria-label="Link to Instagram account">
-      <InstagramIcon width={24} height={24} />
-    </a>
-    <a href="mailto:sampartington06@gmail.com" target="_blank" aria-label="Link to email">
-      <EmailIcon width={32} height={32} />
-    </a> -->
-    <a class="text-link mx-1 link" href="/">[home]</a>
-    <a class="text-link mx-1 link" href="https://github.com/sam-part" target="_blank">[github]</a>
-    <a class="text-link mx-1 link" href="https://www.linkedin.com/in/samuel-partington-580b69316/" target="_blank">[linkedin]</a>
-    <a class="text-link mx-1 link" href="mailto:sampartington06@gmail.com" target="_blank">[email]</a>
-    <a class="text-link mx-1 link" href="/blog">[blog]</a>
-  </section>
+  </div>
 
   <section class="space-y-2">
     <p>
@@ -124,10 +91,7 @@ export const prerender = false;
         projects.map((project) => {
           return (
             <div class="w-full mx-auto rounded-lg">
-              <a
-                class="text-2xl text-highlight-5 link"
-                href={project.link}
-              >
+              <a class="text-2xl text-highlight-5 link" href={project.link}>
                 {project.name}
               </a>
               <p class="text-xsmall" set:html={project.desc} />
@@ -177,12 +141,9 @@ export const prerender = false;
       }
     </div>
   </section>
+  
+  <div class="max-w-screen mt-24 w-fit">
+    <ImageAscii />
+  </div>
+
 </BaseLayout>
-
-<div class="max-w-full mx-auto mt-24 mb-12 w-fit">
-  <ImageAscii />
-</div>
-
-<div class="mb-12 text-center text-xsmall">
-  © 2025 Sam Partington
-</div>

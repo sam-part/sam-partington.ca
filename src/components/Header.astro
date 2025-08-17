@@ -1,0 +1,35 @@
+---
+const { title } = Astro.props;
+---
+
+<header>
+    <section class="mt-4 text-center">
+        <h1 class="header text-title">{title}</h1>
+        mathematics student @
+        <a href="https://uwaterloo.ca/" class="underline text-highlight-1 link"
+            >university of waterloo</a
+        >
+    </section>    
+    
+    <nav class="my-8 mx-4 text-center">
+        <a class="text-link mx-1 link" href="/">[home]</a>
+        <a
+            class="text-link mx-1 link"
+            href="https://github.com/sam-part"
+            target="_blank">[github]</a
+        >
+        <a
+            class="text-link mx-1 link"
+            href="https://www.linkedin.com/in/samuel-partington-580b69316/"
+            target="_blank">[linkedin]</a
+        >
+        <a
+            class="text-link mx-1 link"
+            href="mailto:sampartington06@gmail.com"
+            target="_blank">[email]</a
+        >
+        <a class="text-link mx-1 link" href="/blog">[blog]</a>
+    </nav>
+
+
+</header>
