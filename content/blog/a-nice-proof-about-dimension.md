@@ -6,11 +6,11 @@ date: "2025-08-02"
 tags: []
 ---
 
-To celebrate the creation of my new website and blog, and also to test the functionality of its typesetting, we will look at a simple yet elegant proof from my first-year advanced linear algebra class.
+To celebrate the creation of my new website and blog, and also to test the functionality of its typesetting, we will look at a simple yet elegant proof from my first-year linear algebra class.
 
 This question was given on one of our assignments. I was quite pleased with the following solution which I came up with, although I am certainly not the first to do it this way.
 
-There is an argument to be made regarding the countability of $\mathbb{R}$ and $\mathbb{Q}$, but we instead focus on [transcendental numbers](https://en.wikipedia.org/wiki/Transcendental_number).
+There is a quick argument to be made regarding the countability of $\mathbb{R}$ and $\mathbb{Q}$, but we instead focus on [transcendental numbers](https://en.wikipedia.org/wiki/Transcendental_number).
 
 <br>
 

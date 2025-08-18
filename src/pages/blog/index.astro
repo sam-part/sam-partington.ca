@@ -2,33 +2,75 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
-const posts = await getCollection("blog");
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+
+type BlogPost = (typeof posts)[number];
+
+// group posts by year
+const postGroupsUnsorted = posts.reduce(
+    (groups: Record<number, BlogPost[]>, post: BlogPost) => {
+        const year = post.data.date.getFullYear();
+
+        if (!groups[year]) groups[year] = [post];
+        else groups[year].push(post);
+
+        return groups;
+    },
+    {},
+);
+
+const postGroups = Object.keys(postGroupsUnsorted)
+    .map(Number)
+    .sort((a, b) => b - a)
+    .map((year) => ({
+        year: year,
+        posts: postGroupsUnsorted[year],
+    }));
 ---
 
 <BaseLayout title="Sam Partington">
     <div class="w-full mb-12">
         <h1 class="subheader mb-8">Blog</h1>
         {
-            posts.map((post) => (
-                <div class="mb-6">
-                    <div class="flex flex-col sm:flex-row">
-                        <a
-                            href={`/blog/${post.id}`}
-                            class="link underline text-highlight-2 mr-12"
-                        >
-                            {post.data.title}
-                        </a>
+            postGroups.map((group) => {
+                return (
+                    <div class="mb-8">
+                        <h2 class="text-highlight-3 text-2xl mb-4">{group.year}</h2>
+                        {
+                        group.posts.map((post) => {
+                            return (
+                                <div class="mb-6">
+                                    <div class="flex flex-col sm:flex-row">
+                                        <a
+                                            href={`/blog/${post.id}`}
+                                            class="link underline text-highlight-1 mr-12"
+                                        >
+                                            {post.data.title}
+                                        </a>
 
-                        <p class="sm:ml-auto text-highlight-3 text-nowrap">
-                            {post.data.date}
-                        </p>
+                                        <p class="sm:ml-auto text-highlight-3 text-nowrap">
+                                            {post.data.date.toLocaleString(
+                                                undefined,
+                                                {
+                                                    month: "short",
+                                                    day: "numeric",
+                                                    timeZone: "UTC"
+                                                },
+                                            )}
+                                        </p>
+                                    </div>
+
+                                    <p class="text-small mr-24">
+                                        {post.data.description}
+                                    </p>
+                                </div>
+                            );
+                        })}
                     </div>
-
-                    <p class="text-small">
-                        {post.data.description}
-                    </p>
-                </div>
-            ))
+                );
+            })
         }
     </div>
 </BaseLayout>

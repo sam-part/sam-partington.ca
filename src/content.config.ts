@@ -6,13 +6,7 @@ const blog = defineCollection({
     schema: z.object({
         title: z.string().default("Sam Partington"),
         description: z.string(),
-        date: z.coerce.date().transform(date => 
-            date.toLocaleDateString(undefined, {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-            })
-        ),
+        date: z.coerce.date(),
         tags: z.array(z.string())
     })
 });

@@ -44,7 +44,14 @@ const { Content } = await render(post);
                 {post.data.title}
             </h1>
             <h2 class="text-highlight-1">
-                {post.data.date}
+                {
+                    post.data.date.toLocaleString(undefined, {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                        timeZone: "UTC",
+                    })
+                }
             </h2>
         </div>
         <div class="blog-content text-default">
