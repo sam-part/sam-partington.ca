@@ -43,6 +43,10 @@
     @apply text-3xl;
 }
 
+.text-large {
+    @apply text-xl sm:text-2xl;
+}
+
 .blog-content a {
     @apply text-highlight-1 hover:underline hover:brightness-110 active:brightness-90 transition;
 }
