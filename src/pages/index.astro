@@ -4,10 +4,10 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import MusicList from "../components/MusicList.astro";
 import ImageAscii from "../components/ImageAscii.astro";
-import Header from "../components/Header.astro";
 
 import WeavertonImage from "../images/weaverton.png";
 import StrathDroidsImage from "../images/strathdroids.jpg";
+import FutureCitiesImage from "../images/future-cities-institute.jpg";
 
 const projects = [
   {
@@ -18,12 +18,12 @@ const projects = [
           <span class="text-highlight-4">OpenCL</span>.`,
     link: "https://github.com/sam-part/fractals-cl",
   },
-  // {
-  // name: "cubegen",
-  // desc: `Terminal-based speedcubing timer made with
-  // <span class="text-highlight-7">Rust</span>.`,
-  // link: "https://github.com/sam-part/cubegen",
-  // },
+  {
+    name: "physics-engine",
+    desc: `Simple 2D rigid-body physics engine written from scratch in 
+           <span class="text-highlight-7">C++</span>.`,
+    link: "https://github.com/sam-part/physics-engine",
+  },
   {
     name: "sam-partington.ca",
     desc: `My personal website, made with love using 
@@ -33,6 +33,13 @@ const projects = [
 ];
 
 const experiences = [
+  {
+    name: "University of Waterloo, Future Cities Institute",
+    desc: "Research assistant and software developer",
+    date: "Since Jan. 2026",
+    link: "https://uwaterloo.ca/future-cities-institute/",
+    image: FutureCitiesImage,
+  },
   {
     name: "Weaverton",
     desc: "Co-founder and developer",
@@ -61,21 +68,24 @@ export const prerender = false;
 
   <section class="space-y-2">
     <p>
-      Hi, my name is Sam and I'm currently pursuing a degree in combinatorics &
-      optimization.
+      Hi, my name is Sam and I'm currently pursuing a double degree in 
+      <span class="text-highlight-2">pure mathematics</span>
+      and 
+      <span class="text-highlight-3">combinatorics & optimization</span>
+      with a minor in
+      <span class="text-highlight-5">computing</span>.
     </p>
     <p>
       Besides math, I have a strong interest in
-      <span class="text-highlight-2">software engineering,</span>
+      <span class="text-highlight-4">software engineering,</span>
       <span class="text-highlight-3">robotics,</span>
       and
-      <span class="text-highlight-4">procedural generation.</span>
+      <span class="text-highlight-2">procedural generation.</span>
     </p>
     <p>
       I'm also an avid reader who enjoys
-      <span class="text-highlight-6">music,</span>
-      playing <span class="text-highlight-5">guitar,</span>
-      and spending time with <span class="text-highlight-7">nature</span>.
+      <span class="text-highlight-6">music</span>
+      and playing <span class="text-highlight-7">guitar</span>!
     </p>
   </section>
 
