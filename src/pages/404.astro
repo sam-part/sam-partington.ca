@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+Astro.response.status = 404;
+Astro.response.statusText = "Not Found";
+---
+
+<BaseLayout title="404 — Sam Partington">
+    <section class="flex flex-col items-center text-center my-16 space-y-4">
+        <h2 class="text-title" style="font-size: 8rem; line-height: 1;">404</h2>
+        <p class="subheader text-highlight-2">page not found :)</p>
+        <p class="text-small text-text">
+            The page you're looking for doesn't exist or has been moved.
+        </p>
+        <a href="/" class="text-link link text-default mt-8">[go home]</a>
+    </section>
+</BaseLayout>
