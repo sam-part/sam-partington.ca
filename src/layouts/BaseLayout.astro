@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 
 const { title, desc } = Astro.props;
+const year = new Date().getFullYear();
 ---
 
 <html lang="en">
@@ -17,7 +18,13 @@ const { title, desc } = Astro.props;
         <main class="container flex flex-col items-center max-w-3xl mx-auto min-h-screen">
             <Header title="Sam Partington" />
             <slot />
-            <div class="mt-auto py-12 text-center text-xsmall">© 2025 Sam Partington</div>
+            <div class="mt-auto py-12 text-center text-xsmall">© 
+                <span id="footer-year">{year}</span> Sam Partington
+            </div>
         </main>
     </body>
+
+    <script is:inline>
+        document.getElementById("footer-year").textContent = new Date().getFullYear();
+    </script>
 </html>
