@@ -24,5 +24,9 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex],
   },
 
+  image: {
+    domains: ["lastfm.freetls.fastly.net"],
+  },
+
   site: "https://sam-partington.ca"
 });

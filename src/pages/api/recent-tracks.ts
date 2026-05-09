@@ -17,11 +17,13 @@ export const GET: APIRoute = async () => {
     }
 
     try {
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks
-                                    &user=${USER}
-                                    &limit=${NUM_TRACKS}
-                                    &api_key=${API_KEY}
-                                    &format=json`);
+        const url = new URL("http://ws.audioscrobbler.com/2.0/");
+        url.searchParams.set("method", "user.getrecenttracks");
+        url.searchParams.set("user", USER);
+        url.searchParams.set("limit", String(NUM_TRACKS));
+        url.searchParams.set("api_key", API_KEY);
+        url.searchParams.set("format", "json");
+        const response = await fetch(url);
             
         if (!response.ok) {
             return response;
