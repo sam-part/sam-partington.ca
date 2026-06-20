@@ -2,51 +2,52 @@
 @import "@fontsource/libertinus-math";
 
 @theme {
-    --color-background: #18181b;
-    --color-surface: #363a4f;
-    --color-title: #d1c8ff;
-    --color-text: #cdd6f4;
+  --color-background: #18181b;
+  --color-surface: #363a4f;
+  --color-title: #d1c8ff;
+  --color-text: #cdd6f4;
+  --color-subtext: #bac2de;
 
-    --color-highlight-1: #c6a0f6;
-    --color-highlight-2: #f5bde6;
-    --color-highlight-3: #b7bdf8;
-    --color-highlight-4: #a6da95;
-    --color-highlight-5: #91d7e3;
-    --color-highlight-6: #f5a97f;
-    --color-highlight-7: #eed49f;
-    --color-link: #ca9ee6;
+  --color-highlight-1: #c6a0f6;
+  --color-highlight-2: #f5bde6;
+  --color-highlight-3: #b7bdf8;
+  --color-highlight-4: #a6da95;
+  --color-highlight-5: #91d7e3;
+  --color-highlight-6: #f5a97f;
+  --color-highlight-7: #eed49f;
+  --color-link: #ca9ee6;
 
-    --font-libertinus: "Libertinus Math", system-ui;
+  --font-libertinus: "Libertinus Math", system-ui;
 }
 
 .link {
-    @apply hover:underline hover:brightness-110 active:brightness-90 transition;
+  @apply hover:underline hover:brightness-110 active:brightness-90 transition;
 }
 
 .text-default {
-    @apply text-lg sm:text-xl;
+  @apply text-lg sm:text-xl;
 }
 
 .text-small {
-    @apply text-base sm:text-lg;
+  @apply text-base sm:text-lg;
 }
 
 .text-xsmall {
-    @apply text-sm sm:text-base;
+  @apply text-sm sm:text-base;
 }
 
 .header {
-    @apply text-4xl;
+  @apply text-4xl;
 }
 
 .subheader {
-    @apply text-3xl;
+  @apply text-3xl;
 }
 
 .text-large {
-    @apply text-xl sm:text-2xl;
+  @apply text-xl sm:text-2xl;
 }
 
 .blog-content a {
-    @apply text-highlight-1 hover:underline hover:brightness-110 active:brightness-90 transition;
+  @apply text-highlight-1 hover:underline hover:brightness-110 active:brightness-90 transition;
 }

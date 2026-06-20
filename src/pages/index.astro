@@ -8,6 +8,7 @@ import ImageAscii from "../components/ImageAscii.astro";
 import WeavertonImage from "../images/weaverton.png";
 import StrathDroidsImage from "../images/strathdroids.jpg";
 import FutureCitiesImage from "../images/future-cities-institute.jpg";
+import AtomicSemiImage from "../images/atomic-semi.png";
 
 const projects = [
   {
@@ -34,9 +35,18 @@ const projects = [
 
 const experiences = [
   {
-    name: "University of Waterloo, Future Cities Institute",
+    name: "Atomic Semi",
+    desc: "Software engineering intern",
+    date: "Incoming Sep. 2026",
+    location: "San Francisco, CA",
+    link: "https://atomicsemi.com/",
+    image: AtomicSemiImage,
+  },
+  {
+    name: "Future Cities Institute",
     desc: "Research assistant and software developer",
     date: "Jan. 2026 - Apr. 2026",
+    location: "Waterloo, ON",
     link: "https://uwaterloo.ca/future-cities-institute/",
     image: FutureCitiesImage,
   },
@@ -44,6 +54,7 @@ const experiences = [
     name: "Weaverton",
     desc: "Co-founder and developer",
     date: "Jul. 2025 - Aug. 2025",
+    location: "Strathroy, ON",
     link: "https://www.weaverton.net/",
     image: WeavertonImage,
   },
@@ -51,6 +62,7 @@ const experiences = [
     name: "FRC 7058: StrathDroids",
     desc: "Robotics team captain and lead developer",
     date: "Sep. 2022 - Apr. 2024",
+    location: "Strathroy, ON",
     image: StrathDroidsImage,
   },
 ];
@@ -68,9 +80,9 @@ export const prerender = false;
 
   <section class="space-y-2">
     <p>
-      Hi, my name is Sam and I'm currently pursuing a double major in 
+      Hi, my name is Sam and I'm currently pursuing a double major in
       <span class="text-highlight-2">computer science</span>
-      and 
+      and
       <span class="text-highlight-3">pure mathematics</span>.
     </p>
     <p>
@@ -78,16 +90,14 @@ export const prerender = false;
       <span class="text-highlight-4">software engineering,</span>
       <span class="text-highlight-3">robotics,</span>
       and
-      <span class="text-highlight-6">procedural generation</span>.
-      Lately I've been working on 
+      <span class="text-highlight-6">procedural generation</span>. Lately I've
+      been working on
       <span class="text-highlight-2">computational modelling</span>
-      for an 
+      for an
       <span class="text-highlight-7">urban planning</span>
       analysis tool.
     </p>
-    <p>
-      I'm also an avid reader, runner, and guitar player.
-    </p>
+    <p>I'm also an avid reader, runner, and guitar player.</p>
   </section>
 
   <section class="w-full my-10 mr-auto">
@@ -124,7 +134,7 @@ export const prerender = false;
               <Image
                 src={exp.image}
                 alt={`${exp.name} logo`}
-                class="size-12 rounded-xl"
+                class="size-12 rounded-lg"
               />
               <div class="w-full mx-3">
                 <div class="flex flex-col sm:items-center sm:flex-row">
@@ -140,11 +150,17 @@ export const prerender = false;
                       {exp.name}
                     </h3>
                   )}
-                  <p class="sm:ml-auto sm:mr-1 text-text text-xsmall">
+                  <p class="sm:ml-auto sm:mr-1 text-highlight-3 text-xsmall">
                     {exp.date}
                   </p>
                 </div>
-                <p class="text-xsmall text-text" set:html={exp.desc} />
+                <div class="flex flex-col sm:items-center sm:flex-row">
+                  <p class="text-xsmall text-text" set:html={exp.desc} />
+                  <p
+                    class="sm:ml-auto sm:mr-1 text-xsmall text-text"
+                    set:html={exp.location}
+                  />
+                </div>
               </div>
             </div>
           );
